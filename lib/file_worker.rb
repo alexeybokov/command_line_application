@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'fileutils'
+require 'pry'
 
 module FileWorker
   module_function
@@ -15,7 +16,7 @@ module FileWorker
           data << line_hash
         end
       end
-      data
+      prepare_result(data)
     rescue
       nil
     ensure
@@ -39,3 +40,6 @@ module FileWorker
     end
   end
 end
+
+p FileWorker.read_file('score.txt')
+
